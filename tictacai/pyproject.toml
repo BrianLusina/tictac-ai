@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "tictacai"
+version = "0.1.0"
+description = "Tic-Tac-Toe Game modeled using AI players"
+authors = ["BrianLusina <12752833+BrianLusina@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "tictacai"
+version = "1.0.0"
