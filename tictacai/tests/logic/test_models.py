@@ -1,5 +1,5 @@
 import unittest
-from ...tictacai.logic.models import Mark, Grid
+from tictacai.logic.models import Mark, Grid
 
 
 class ModelsTestCases(unittest.TestCase):
