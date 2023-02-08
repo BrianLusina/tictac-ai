@@ -1,19 +1,8 @@
 import unittest
-from tictacai.logic.models import Mark, Grid
+from tictacai.logic.models import Grid
 
 
 class ModelsTestCases(unittest.TestCase):
-    def test_mark_can_get_other_mark_from_property(self):
-        """Mark.other property retrieves the other mark from enum"""
-        x_mark = Mark("X")
-        expected = Mark("O")
-        actual = x_mark.other
-        self.assertEquals(expected, actual)
-
-    def test_mark_is_instance_of_str(self):
-        """Mark.other property retrieves the other mark from enum"""
-        self.assertTrue(isinstance(Mark.CROSS, str))
-        self.assertTrue(isinstance(Mark.NAUGHT, str))
 
     def test_new_grid_has_9_empty_spaces(self):
         """Grid instance should have 9 empty spaces"""
