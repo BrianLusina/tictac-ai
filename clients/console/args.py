@@ -11,6 +11,7 @@ PLAYER_CLASSES = {
     "random": RandomComputerPlayer,
 }
 
+
 class Args(NamedTuple):
     """
     This provides additional type safety over returning a generic tuple. Doing this also allows access 
@@ -41,6 +42,7 @@ def parse_args() -> Args:
         "--starting",
         dest="starting_mark",
         choices=Mark,
+        type=Mark,
         default="X"
     )
 
