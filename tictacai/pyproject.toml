@@ -1,13 +1,34 @@
 [tool.poetry]
 name = "tictacai"
 version = "0.1.0"
-description = "Tic-Tac-Toe Game modeled using AI players"
+description = "Tic-Tac-Toe Game created using Minimax AI players"
 authors = ["BrianLusina <12752833+BrianLusina@users.noreply.github.com>"]
 readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",    
+]
+keywords = ["tic-tac-toe", "minimax", "gamedev"]
+dependencies = []
+requires-python = ">=3.10"
 
 [tool.poetry.dependencies]
 python = "^3.10"
 
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+mypy = "^1.0.0"
+pylint = "^2.16.1"
+
+[tool.black]
+line-length = 77
+
+[tool.isort]
+profile = "black"
 
 [build-system]
 requires = ["poetry-core"]
