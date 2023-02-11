@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from ..game.players import Player
+    from ..game.players_async import AsyncPlayer
     from .models import Grid, GameState, Mark
 
 from .exceptions import InvalidGameState
@@ -67,6 +68,13 @@ def validate_winner(grid: Grid, starting_mark: Mark, winner: Mark | None) -> Non
 
 
 def validate_players(playerOne: Player, playerTwo: Player) -> None:
+    """
+    Validates that both players have different marks
+    """
+    if playerOne.mark is playerTwo.mark:
+        raise ValueError("Players must use different marks")
+
+def validate_async_players(playerOne: AsyncPlayer, playerTwo: AsyncPlayer) -> None:
     """
     Validates that both players have different marks
     """
