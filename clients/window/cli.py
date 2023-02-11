@@ -17,7 +17,7 @@ def main() -> None:
 
 
 def game_loop(window: Window, events: Queue) -> None:
-    playerOne = WindowPlayer(Mark("X"), events)
-    playerTwo = MinimaxComputerPlayer(Mark("O"))
+    player_one = WindowPlayer(Mark("X"), events)
+    player_two = MinimaxComputerPlayer(Mark("O"))
     starting_mark = Mark("X")
-    TicTacToe(playerOne=playerOne, playerTwo=playerTwo, renderer=WindowRenderer(window)).play(starting_mark)
+    TicTacToe(playerOne=player_one, playerTwo=player_two, renderer=WindowRenderer(window)).play(starting_mark)
