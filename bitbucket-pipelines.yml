@@ -1,0 +1,55 @@
+# ref https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
+image: python:3.10.4
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - .venv
+        script:
+          - make setup
+          - make install
+
+    - step:
+        name: Lint Application
+        script:
+          - make lint
+
+    - step:
+        name: License Check
+        script:
+          - make license-check
+
+    - step:
+        name: Run tests
+        script:
+          - make test
+
+    - step:
+        name: Build
+        script:
+          - make build
+
+  pull-requests:
+    '**':
+      - step:
+          caches:
+            - .venv
+          script:
+            - make setup
+            - make install
+
+      - step:
+          name: Run tests
+          script:
+            - make test
+
+      - step:
+          name: Lint Application
+          script:
+            - make lint
+
+      - step:
+          name: License Check
+          script:
+            - make license-check
