@@ -6,7 +6,7 @@ from pyodide import create_proxy
 from players import BrowserPlayer
 from renderers import BrowserRenderer
 
-from tictactai.game.engine_async import AsyncTicTacToe
+from tictacai.game.engine_async import AsyncTicTacToe
 from tictacai.game.players_async import (
     AsyncMinimaxComputerPlayer,
     AsyncRandomComputerPlayer,

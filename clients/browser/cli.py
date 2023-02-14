@@ -3,7 +3,7 @@ import socketserver
 import threading
 import webbrowser
 
-PORT = 8000
+PORT = 8080
 
 
 def run_server(port: int = PORT) -> None:
