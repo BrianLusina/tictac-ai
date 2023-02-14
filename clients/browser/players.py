@@ -15,4 +15,4 @@ class BrowserPlayer(AsyncPlayer):
         try:
             return game_state.make_move_to(index)
         finally:
-            self.events.task_done() 
+            self.events.task_done()

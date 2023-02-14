@@ -22,6 +22,7 @@ class TicTacToe:
     :param error_handler is an optional ErrorHandler callback which is exposed to the clients(frontend) to allows the
     frontend to decide how to take care of an exception
     """
+
     playerOne: Player
     playerTwo: Player
     renderer: Renderer

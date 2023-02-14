@@ -54,7 +54,7 @@ def print_solid(cells: Iterable[str]) -> None:
     """
     Renders the tic-tac-toe grid with player's marks formatted in a multiline template string using the textwrap module
     to remove the indentation.
-    Prints the sequence of cells with an additional gutter around the top left corner. It contains numbered rows & 
+    Prints the sequence of cells with an additional gutter around the top left corner. It contains numbered rows &
     columns indexed by letters. For example:
         A   B   C
       ------------
@@ -62,8 +62,8 @@ def print_solid(cells: Iterable[str]) -> None:
       ┆ ───┼───┼───
     2 ┆  O │ O │
       ┆ ───┼───┼───
-    3 ┆    │ X │    
-        
+    3 ┆    │ X │
+
     :param cells sequence of sales from the grid
     """
     print(

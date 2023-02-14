@@ -17,7 +17,7 @@ class AsyncTicTacToe:
 
     def __post_init__(self):
         validate_async_players(self.playerOne, self.playerTwo)
-    
+
     async def play(self, starting_mark: Mark = Mark("X")) -> None:
         game_state = GameState(Grid(), starting_mark)
 

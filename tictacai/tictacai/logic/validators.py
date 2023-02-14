@@ -11,14 +11,16 @@ from .exceptions import InvalidGameState
 
 
 def validate_grid(grid: Grid) -> None:
-    if not re.match(r'^[\sXO]{9}$', grid.cells):
+    if not re.match(r"^[\sXO]{9}$", grid.cells):
         raise ValueError("Must contain 9 cells of: X, O or space")
 
 
 def validate_game_state(game_state: GameState) -> None:
     validate_number_of_marks(game_state.grid)
     validate_starting_mark(game_state.grid, game_state.starting_mark)
-    validate_winner(game_state.grid, game_state.starting_mark, game_state.winner)
+    validate_winner(
+        game_state.grid, game_state.starting_mark, game_state.winner
+    )
 
 
 def validate_number_of_marks(grid: Grid) -> None:
@@ -45,7 +47,9 @@ def validate_starting_mark(grid: Grid, starting_mark: Mark) -> None:
             raise InvalidGameState("Wrong starting mark")
 
 
-def validate_winner(grid: Grid, starting_mark: Mark, winner: Mark | None) -> None:
+def validate_winner(
+    grid: Grid, starting_mark: Mark, winner: Mark | None
+) -> None:
     """
     A starting player has an advantage, so when they win, they’ll have left more marks than their opponent. Conversely,
     the second player is at a disadvantage, so they can only win the game by making an equal number of moves as the
@@ -74,7 +78,10 @@ def validate_players(playerOne: Player, playerTwo: Player) -> None:
     if playerOne.mark is playerTwo.mark:
         raise ValueError("Players must use different marks")
 
-def validate_async_players(playerOne: AsyncPlayer, playerTwo: AsyncPlayer) -> None:
+
+def validate_async_players(
+    playerOne: AsyncPlayer, playerTwo: AsyncPlayer
+) -> None:
     """
     Validates that both players have different marks
     """

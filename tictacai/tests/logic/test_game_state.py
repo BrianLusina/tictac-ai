@@ -3,7 +3,9 @@ from tictacai.logic.models import Grid, GameState, Mark, Move
 
 
 class GameStateTestCases(unittest.TestCase):
-    def test_game_not_started_returns_correct_value_on_initial_game_state(self):
+    def test_game_not_started_returns_correct_value_on_initial_game_state(
+        self,
+    ):
         """Initial GameState should have game_not_started as True"""
         game_state = GameState(Grid())
         self.assertTrue(game_state.game_not_started)
@@ -57,25 +59,21 @@ class GameStateTestCases(unittest.TestCase):
                 mark=Mark.NAUGHT,
                 cell_index=6,
                 before_state=GameState(
-                    grid=Grid(cells='XXOXOX  O'), 
-                    starting_mark=Mark.CROSS
+                    grid=Grid(cells="XXOXOX  O"), starting_mark=Mark.CROSS
                 ),
                 after_state=GameState(
-                    grid=Grid(cells='XXOXOXO O'), 
-                    starting_mark=Mark.CROSS
-                )
+                    grid=Grid(cells="XXOXOXO O"), starting_mark=Mark.CROSS
+                ),
             ),
             Move(
                 mark=Mark.NAUGHT,
                 cell_index=7,
                 before_state=GameState(
-                    grid=Grid(cells='XXOXOX  O'), 
-                    starting_mark=Mark.CROSS
+                    grid=Grid(cells="XXOXOX  O"), starting_mark=Mark.CROSS
                 ),
                 after_state=GameState(
-                    grid=Grid(cells='XXOXOX OO'), 
-                    starting_mark=Mark.CROSS
-                )
+                    grid=Grid(cells="XXOXOX OO"), starting_mark=Mark.CROSS
+                ),
             ),
         ]
         actual_possible_moves = game_state.possible_moves

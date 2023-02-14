@@ -15,9 +15,10 @@ PLAYER_CLASSES = {
 
 class Args(NamedTuple):
     """
-    This provides additional type safety over returning a generic tuple. Doing this also allows access 
+    This provides additional type safety over returning a generic tuple. Doing this also allows access
     to the tuple's elements by name as well as by index.
     """
+
     player1: Player
     player2: Player
     starting_mark: Mark
@@ -26,25 +27,15 @@ class Args(NamedTuple):
 def parse_args() -> Args:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-X",
-        dest="player_x",
-        choices=PLAYER_CLASSES.keys(),
-        default="human"
+        "-X", dest="player_x", choices=PLAYER_CLASSES.keys(), default="human"
     )
 
     parser.add_argument(
-        "-O",
-        dest="player_o",
-        choices=PLAYER_CLASSES.keys(),
-        default="minimax"
+        "-O", dest="player_o", choices=PLAYER_CLASSES.keys(), default="minimax"
     )
 
     parser.add_argument(
-        "--starting",
-        dest="starting_mark",
-        choices=Mark,
-        type=Mark,
-        default="X"
+        "--starting", dest="starting_mark", choices=Mark, type=Mark, default="X"
     )
 
     args = parser.parse_args()

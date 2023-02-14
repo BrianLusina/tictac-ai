@@ -20,7 +20,7 @@ class MinimaxSerializer:
 
     @staticmethod
     def dump(filename: str = DEFAULT_FILENAME) -> None:
-        with open(filename, mode='w', encoding='utf-8') as file:
+        with open(filename, mode="w", encoding="utf-8") as file:
             json.dump(MinimaxSerializer.precompute_scores(), file)
 
     @staticmethod
@@ -31,7 +31,7 @@ class MinimaxSerializer:
             for move in game_state.possible_moves:
                 scores[MinimaxSerializer.key(move)] = [
                     minimax(move, Mark("X")),
-                    minimax(move, Mark("O"))
+                    minimax(move, Mark("O")),
                 ]
                 traverse(move.after_state)
 
@@ -81,7 +81,7 @@ def find_best_move_optimized(game_state: GameState) -> Move | None:
                     break
             return score
 
-    return max(game_state.possible_moves, key=alpha_beta)    
+    return max(game_state.possible_moves, key=alpha_beta)
 
 
 def find_best_move_precomputed(game_state: GameState) -> Move | None:
@@ -95,7 +95,9 @@ def find_best_move_precomputed(game_state: GameState) -> Move | None:
     )
 
 
-def minimax(move: Move, maximizer: Mark, choose_highest_score: bool = False) -> int:
+def minimax(
+    move: Move, maximizer: Mark, choose_highest_score: bool = False
+) -> int:
     """
     returns the score associated with the move passed as an argument for the indicated maximizing player. If the game
     has finished, then you calculate the score by performing the static evaluation of the grid. Otherwise, you choose
@@ -105,5 +107,6 @@ def minimax(move: Move, maximizer: Mark, choose_highest_score: bool = False) -> 
     if move.after_state.game_over:
         return move.after_state.evaluate_score(maximizer)
     return (max if choose_highest_score else min)(
-        minimax(next_move, maximizer, not choose_highest_score) for next_move in move.after_state.possible_moves
+        minimax(next_move, maximizer, not choose_highest_score)
+        for next_move in move.after_state.possible_moves
     )

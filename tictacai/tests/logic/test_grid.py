@@ -3,7 +3,6 @@ from tictacai.logic.models import Grid
 
 
 class ModelsTestCases(unittest.TestCase):
-
     def test_new_grid_has_9_empty_spaces(self):
         """Grid instance should have 9 empty spaces"""
         grid = Grid()

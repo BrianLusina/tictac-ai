@@ -4,6 +4,7 @@ from tictacai.game.players import Player
 from tictacai.logic.exceptions import InvalidMove
 from tictacai.logic.models import GameState, Move
 
+
 class ConsolePlayer(Player):
     def get_move(self, game_state: GameState) -> Move | None:
         while not game_state.game_over:
@@ -17,7 +18,7 @@ class ConsolePlayer(Player):
                 except InvalidMove:
                     print("That cell is already occupied")
         return None
-    
+
 
 def grid_to_index(grid: str) -> int:
     """

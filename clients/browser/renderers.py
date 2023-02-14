@@ -22,4 +22,4 @@ class BrowserRenderer(Renderer):
             elif game_state.tie:
                 status.innerHTML = "Tie \N{neutral face}"
         else:
-            document.querySelector("#status").innerHTML = ""        
+            document.querySelector("#status").innerHTML = ""

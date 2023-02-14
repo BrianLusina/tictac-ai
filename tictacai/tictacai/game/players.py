@@ -33,7 +33,7 @@ class Player(metaclass=ABCMeta):
 class ComputerPlayer(Player, metaclass=ABCMeta):
     def __init__(self, mark: Mark, delay_seconds: float = 0.25) -> None:
         """
-        Abstract base class for Computer players that extends Player base class by adding a 'delay_seconds' property 
+        Abstract base class for Computer players that extends Player base class by adding a 'delay_seconds' property
         which by default is 0.25 seconds equal to 250 milliseconds. This provides a delay before the computer player
         makes a move.
         :param mark: Initial mark
@@ -45,7 +45,7 @@ class ComputerPlayer(Player, metaclass=ABCMeta):
     def get_move(self, game_state: GameState) -> Move | None:
         time.sleep(self.delay_seconds)
         return self.get_computer_move(game_state)
-    
+
     @abstractmethod
     def get_computer_move(self, game_state: GameState) -> Move | None:
         """Return the computer's move in the given game state"""

@@ -98,7 +98,8 @@ class GameState:
             for mark in Mark:
                 if re.match(pattern.replace("?", mark), self.grid.cells):
                     return [
-                        match.start() for match in re.finditer(r"\?", pattern)
+                        match.start()
+                        for match in re.finditer(r"\?", pattern)
                     ]
 
         return []
@@ -112,7 +113,7 @@ class GameState:
         """
         moves = []
         if not self.game_over:
-            for match in re.finditer(r'\s', self.grid.cells):
+            for match in re.finditer(r"\s", self.grid.cells):
                 moves.append(self.make_move_to(match.start()))
         return moves
 
@@ -137,10 +138,12 @@ class GameState:
             before_state=self,
             after_state=GameState(
                 Grid(
-                    cells=self.grid.cells[:index] + self.current_mark + self.grid.cells[index + 1:]
+                    cells=self.grid.cells[:index]
+                    + self.current_mark
+                    + self.grid.cells[index + 1 :]
                 ),
-                starting_mark=self.starting_mark
-            )
+                starting_mark=self.starting_mark,
+            ),
         )
 
     def evaluate_score(self, mark: Mark) -> int:
