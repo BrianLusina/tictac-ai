@@ -5,7 +5,7 @@ updates:
   - package-ecosystem: pip
     versioning-strategy: "lockfile-only"
     open-pull-requests-limit: 10
-    directory: "/"
+    directory: "/tictacai"
     schedule:
       interval: "weekly"
       day: "tuesday"
