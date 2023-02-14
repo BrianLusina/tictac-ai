@@ -4,14 +4,13 @@ version = "0.1.0"
 description = "Tic-Tac-Toe Game created using Minimax AI players"
 authors = ["BrianLusina <12752833+BrianLusina@users.noreply.github.com>"]
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",    
 ]
 keywords = ["tic-tac-toe", "minimax", "gamedev"]
-dependencies = []
 requires-python = ">=3.10"
 
 [tool.poetry.dependencies]
@@ -37,3 +36,4 @@ build-backend = "poetry.core.masonry.api"
 [project]
 name = "tictacai"
 version = "1.0.0"
+dependencies = []
