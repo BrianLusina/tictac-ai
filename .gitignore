@@ -1,2 +1,8 @@
 .idea/
 .venv
+venv/
+*.egg-info/
+build
+*.eggs/
+.pytest_cache/
+.coverage
