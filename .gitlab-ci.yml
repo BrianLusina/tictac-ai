@@ -25,7 +25,9 @@ before_script:
 
 lint:
   stage: lint
-  script: make lint
+  script: |
+    pip install black
+    make lint
 
 sast:
   stage: test

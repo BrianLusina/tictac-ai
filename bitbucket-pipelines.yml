@@ -1,11 +1,15 @@
 # ref https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
 image: python:3.10.4
 
+definitions:
+  caches:
+    venv: .venv
+
 pipelines:
   default:
     - step:
         caches:
-          - .venv
+          - venv
         script:
           - make setup
           - make install
@@ -29,7 +33,7 @@ pipelines:
     '**':
       - step:
           caches:
-            - .venv
+            - venv
           script:
             - make setup
             - make install

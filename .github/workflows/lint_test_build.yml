@@ -25,10 +25,15 @@ jobs:
         run: make install
 
       - name: Lint application
-        run: make lint
+        run: |
+          pip install black
+          make lint
 
       - name: Test
-        run: make test
+        run: |
+          pip install pytest
+          pip install pytest-cov
+          make test
 
       - name: Build
         run: make build
