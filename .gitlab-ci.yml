@@ -19,16 +19,19 @@ stages:
   - release
 
 before_script:
-    - pip install --user poetry
-    - poetry install
-
-sast:
-  stage: test
+    - export POETRY_HOME=/opt/poetry
+    - python3 -m venv $POETRY_HOME
+    - make install
 
 lint:
   stage: lint
   script: make lint
 
+sast:
+  stage: test
+
 test:
   stage: test
+  needs:
+    - lint
   script: make test

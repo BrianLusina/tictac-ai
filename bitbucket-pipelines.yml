@@ -16,11 +16,6 @@ pipelines:
           - make lint
 
     - step:
-        name: License Check
-        script:
-          - make license-check
-
-    - step:
         name: Run tests
         script:
           - make test
@@ -48,8 +43,3 @@ pipelines:
           name: Lint Application
           script:
             - make lint
-
-      - step:
-          name: License Check
-          script:
-            - make license-check
