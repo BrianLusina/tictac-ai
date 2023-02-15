@@ -26,6 +26,7 @@ twine = "^4.0.2"
 build = "^0.10.0"
 pre-commit = "^3.0.4"
 pip-licenses = "^4.0.3"
+pytest-cov = "^4.0.0"
 
 [tool.black]
 line-length = 77
