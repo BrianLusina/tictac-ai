@@ -28,7 +28,7 @@ class GameStateTestCases(unittest.TestCase):
     def test_winning_cells_returns_correct_value_on_initial_game_state(self):
         """Initial GameState should have winning_cells as empty"""
         game_state = GameState(Grid())
-        self.assertEquals([], game_state.winning_cells)
+        self.assertEqual([], game_state.winning_cells)
 
     def test_concluded_game_state_returns_correct_marks_and_winner(self):
         """Concluded GameState should return correct Marks, winner & winning cells"""
@@ -36,19 +36,19 @@ class GameStateTestCases(unittest.TestCase):
 
         expected_starting_mark = Mark.CROSS
         actual_staring_mark = game_state.starting_mark
-        self.assertEquals(expected_starting_mark, actual_staring_mark)
+        self.assertEqual(expected_starting_mark, actual_staring_mark)
 
         expected_current_mark = Mark.NAUGHT
         actual_current_mark = game_state.current_mark
-        self.assertEquals(expected_current_mark, actual_current_mark)
+        self.assertEqual(expected_current_mark, actual_current_mark)
 
         expected_winner = Mark.CROSS
         actual_winner = game_state.winner
-        self.assertEquals(expected_winner, actual_winner)
+        self.assertEqual(expected_winner, actual_winner)
 
         expected_winning_cells = [2, 4, 6]
         actual_winning_cells = game_state.winning_cells
-        self.assertEquals(expected_winning_cells, actual_winning_cells)
+        self.assertEqual(expected_winning_cells, actual_winning_cells)
 
     def test_in_progress_game_state_returns_correct_possible_moves(self):
         """In Progress GameState should return correct possible moves"""
@@ -77,7 +77,7 @@ class GameStateTestCases(unittest.TestCase):
             ),
         ]
         actual_possible_moves = game_state.possible_moves
-        self.assertEquals(expected_possible_moves, actual_possible_moves)
+        self.assertEqual(expected_possible_moves, actual_possible_moves)
 
 
 if __name__ == "__main__":

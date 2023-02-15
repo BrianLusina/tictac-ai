@@ -8,7 +8,7 @@ class ModelsTestCases(unittest.TestCase):
         x_mark = Mark("X")
         expected = Mark("O")
         actual = x_mark.other
-        self.assertEquals(expected, actual)
+        self.assertEqual(expected, actual)
 
     def test_mark_is_instance_of_str(self):
         """Mark.other property retrieves the other mark from enum"""

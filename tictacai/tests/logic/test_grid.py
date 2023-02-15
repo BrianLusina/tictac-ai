@@ -23,7 +23,7 @@ class ModelsTestCases(unittest.TestCase):
             Grid("XX")
 
         expected = "Must contain 9 cells of: X, O or space"
-        self.assertEquals(expected, ex.exception.args[0])
+        self.assertEqual(expected, ex.exception.args[0])
 
     def test_grid_is_not_created_with_invalid_characters(self):
         """Grid instance should not be created with invalid characters"""
@@ -31,7 +31,7 @@ class ModelsTestCases(unittest.TestCase):
             Grid("XXOxO O  ")
 
         expected = "Must contain 9 cells of: X, O or space"
-        self.assertEquals(expected, ex.exception.args[0])
+        self.assertEqual(expected, ex.exception.args[0])
 
     def test_grid_can_get_the_count_of_Xs_and_Os_and_empty(self):
         """Grid can get the correct count for Xs and Os & empty Slots"""
@@ -43,9 +43,9 @@ class ModelsTestCases(unittest.TestCase):
         actual_empty_count = grid.empty_count
         expected_empty_count = 0
 
-        self.assertEquals(expected_x_count, actual_x_count)
-        self.assertEquals(expected_o_count, actual_o_count)
-        self.assertEquals(expected_empty_count, actual_empty_count)
+        self.assertEqual(expected_x_count, actual_x_count)
+        self.assertEqual(expected_o_count, actual_o_count)
+        self.assertEqual(expected_empty_count, actual_empty_count)
 
 
 if __name__ == "__main__":
