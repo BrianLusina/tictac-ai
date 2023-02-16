@@ -22,6 +22,6 @@ lint:
 
 # Build application
 build:
-	cd tictacai && python setup.py sdist bdist_wheel && poetry build
+	cd tictacai && python -m build && poetry build
 
 all: setup install lint test build

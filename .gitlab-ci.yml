@@ -21,7 +21,9 @@ stages:
 before_script:
     - export POETRY_HOME=/opt/poetry
     - python3 -m venv $POETRY_HOME
-    - make install
+    -	pip install --upgrade pip
+    - pip install poetry
+    - cd tictacai && poetry install
 
 lint:
   stage: lint
@@ -36,4 +38,29 @@ test:
   stage: test
   needs:
     - lint
-  script: make test
+  script: |
+    pip install pytest
+    pip install pytest-cov
+    make test
+
+build:
+  stage: build
+  needs:
+    - test
+  script: make build
+
+release:
+  stage: release
+  needs:
+    - build
+  script: GITLAB_TOKEN={$GITLAB_TOKEN} npx semantic-release
+
+package:
+  stage: publish
+  needs:
+    - build
+  script:
+    - pip install build twine
+    - make build
+    - cd tictacai
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi --verbose -u '__token__' dist/*

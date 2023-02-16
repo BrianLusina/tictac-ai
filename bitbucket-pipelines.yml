@@ -11,17 +11,21 @@ pipelines:
         caches:
           - venv
         script:
-          - make setup
+          - export POETRY_HOME=/opt/poetry
+          - python3 -m venv $POETRY_HOME
           - make install
 
     - step:
-        name: Lint Application
+        name: Lint
         script:
+          - pip install black
           - make lint
 
     - step:
-        name: Run tests
+        name: Tests
         script:
+          - pip install pytest
+          - pip install pytest-cov
           - make test
 
     - step:
@@ -34,16 +38,27 @@ pipelines:
       - step:
           caches:
             - venv
+
           script:
-            - make setup
+            - export POETRY_HOME=/opt/poetry
+            - python3 -m venv $POETRY_HOME
             - make install
 
       - step:
-          name: Run tests
+          name: Lint
           script:
-            - make test
+            - pip install black
+            - make lint
 
       - step:
-          name: Lint Application
+          name: Tests
           script:
-            - make lint
+            - pip install pytest
+            - pip install pytest-cov
+            - make test
+
+
+      - step:
+          name: Build
+          script:
+            - make build
