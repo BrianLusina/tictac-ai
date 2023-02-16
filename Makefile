@@ -22,6 +22,6 @@ lint:
 
 # Build application
 build:
-	cd tictacai && python -m build && poetry build
+	cd tictacai && poetry build
 
 all: setup install lint test build
