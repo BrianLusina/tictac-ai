@@ -29,7 +29,7 @@ lint:
   stage: lint
   script: |
     pip install black
-    make lint
+    black
 
 sast:
   stage: test
@@ -41,13 +41,14 @@ test:
   script: |
     pip install pytest
     pip install pytest-cov
-    make test
+    pytest
 
 build:
   stage: build
   needs:
     - test
-  script: make build
+  script: |
+    cd tictacai && poetry build
 
 release:
   stage: release

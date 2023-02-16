@@ -31,6 +31,7 @@ pipelines:
     - step:
         name: Build
         script:
+          - pip install poetry
           - make build
 
   pull-requests:
@@ -56,7 +57,6 @@ pipelines:
             - pip install pytest
             - pip install pytest-cov
             - make test
-
 
       - step:
           name: Build
