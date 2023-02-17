@@ -27,9 +27,10 @@ before_script:
 
 lint:
   stage: lint
-  script: |
-    pip install black
-    make lint
+  script:
+    - pip install black
+    - black tictacai
+    - black clients
 
 sast:
   stage: test
@@ -38,23 +39,28 @@ test:
   stage: test
   needs:
     - lint
-  script: |
-    pip install pytest
-    pip install pytest-cov
-    pytest
+  script:
+    - pip install pytest
+    - pip install pytest-cov
+    - pytest
 
 build:
   stage: build
   needs:
     - test
-  script: |
-    cd tictacai && poetry build
+  script: cd tictacai && poetry build
 
 release:
+  image: node:12-buster-slim
   stage: release
   needs:
     - build
-  script: GITLAB_TOKEN={$GITLAB_TOKEN} npx semantic-release
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"    
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends git-core ca-certificates
+    - npm install -g semantic-release @semantic-release/gitlab
+  script: GITLAB_TOKEN={$GITLAB_TOKEN} semantic-release
 
 package:
   stage: publish
