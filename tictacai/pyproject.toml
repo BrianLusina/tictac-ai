@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tictacai"
-version = "0.1.3"
+version = "0.1.4"
 description = "Tic-Tac-Toe Game created using Minimax AI players"
 authors = ["BrianLusina <12752833+BrianLusina@users.noreply.github.com>"]
 readme = "README.md"
